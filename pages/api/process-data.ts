@@ -9,7 +9,7 @@ function getDateTime() {
 	return {
 		year: currentDate.getUTCFullYear(),
 		month: currentDate.getUTCMonth() + 1,
-		day: currentDate.getUTCDay(),
+		day: currentDate.getUTCDate(),
 		hour: currentDate.getUTCHours(),
 	};
 }

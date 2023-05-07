@@ -33,6 +33,7 @@
   "devDependencies": {
     "@types/node": "20.1.0",
     "@types/react": "18.2.5",
+    "bun": "^0.5.9",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.1",
     "ts-node": "^10.9.1",
