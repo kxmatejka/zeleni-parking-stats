@@ -1,5 +1,6 @@
 import fetch from "node-fetch";
 import { z } from "zod";
+import { fetchPlzen } from "./fetchers/fetch-plzen";
 
 const CITIES = {
 	pardubice: "pardubice",
@@ -33,7 +34,7 @@ const Parking = z.object({
 
 export type Parking = z.infer<typeof Parking>
 
-export async function fetchParking(): Promise<Parking[]> {
+export async function fetchPardubice(): Promise<Parking[]> {
 	const response = await fetch("https://pardubice.chytrejsiparking.cz/admin/api/app/parking/occupancy?placeTypes=common&locale=cs", {
 		headers: {
 			"Content-Type": "application/json; charset=utf-8",
@@ -54,4 +55,10 @@ export async function fetchParking(): Promise<Parking[]> {
 		total: record.data.total,
 		free: record.data.free,
 	}));
+}
+
+export async function fetchParking(): Promise<Parking[]> {
+	const result = await Promise.all([fetchPardubice(), fetchPlzen() ]);
+
+	return result.flat();
 }
