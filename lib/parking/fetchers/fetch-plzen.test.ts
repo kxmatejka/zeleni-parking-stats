@@ -1,7 +1,6 @@
 import { extractFreeValueFromHtmlPage } from "./fetch-plzen";
 import { expect, test } from "bun:test";
 
-
 test("extractFreeValueFromHtmlPage", () => {
 	expect(extractFreeValueFromHtmlPage(`
 		<div class="col-lg-6">

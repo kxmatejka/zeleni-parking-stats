@@ -1,6 +1,7 @@
 import fetch from "node-fetch";
 import { z } from "zod";
 import { fetchPlzen } from "./fetchers/fetch-plzen";
+import { fetchUstiNadLabem } from "./fetchers/fetch-usti-nad-labem";
 
 const CITIES = {
 	pardubice: "pardubice",
@@ -58,7 +59,11 @@ export async function fetchPardubice(): Promise<Parking[]> {
 }
 
 export async function fetchParking(): Promise<Parking[]> {
-	const result = await Promise.all([fetchPardubice(), fetchPlzen() ]);
+	const result = await Promise.all([
+		fetchPardubice(),
+		fetchPlzen(),
+		fetchUstiNadLabem(),
+	]);
 
 	return result.flat();
 }
