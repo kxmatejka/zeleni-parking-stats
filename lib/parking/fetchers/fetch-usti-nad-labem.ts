@@ -33,7 +33,7 @@ async function fetchParkingHouse(name: ParkingHousesNames) {
 }
 
 export function extractFreeValueFromHtmlPage(html: string): number {
-	const result = html.match(/\<div class="progress-bar bg-success progress-bar-striped".+>([0-9]+).+<\/div>/);
+	const result = html.match(/\<div class="progress-bar.+>([0-9]+).+<\/div>/);
 	const numberInResult = result ? result[1] : "";
 
 	return parseInt(numberInResult, 10);

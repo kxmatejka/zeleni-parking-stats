@@ -20,6 +20,6 @@ const html = `<!doctype html>
 </body>
 </html>`;
 
-test("extractFreeValueFromHtmlPage", () => {
+test("extractFreeValueFromHtmlPage 1", () => {
 	expect(extractFreeValueFromHtmlPage(html)).toEqual(35);
 });
